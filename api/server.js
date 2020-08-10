@@ -7,18 +7,18 @@ const server = express();
 
 server.use(express.json());
 
-// server.use("/api/accounts", AccountsRouter);
+server.use("/api/accounts", AccountsRouter);
 
-server.get("/api/accounts", (req, res) => {
-	db("accounts")
-		.then((accounts) => {
-			res.status(200).json({ data: accounts });
-		})
-		.catch((error) => {
-			console.log(error);
-			res.status(500).json({ error: error.message });
-		});
-});
+// server.get("/api/accounts", (req, res) => {
+// 	db("accounts")
+// 		.then((accounts) => {
+// 			res.status(200).json({ data: accounts });
+// 		})
+// 		.catch((error) => {
+// 			console.log(error);
+// 			res.status(500).json({ error: error.message });
+// 		});
+// });
 
 server.get("/", (req, res) => {
 	res.status(200).json({ api: "up" });
